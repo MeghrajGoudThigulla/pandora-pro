@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --primary: 160 84% 39%;
+    /* Sage Green */
+    --secondary: 199 89% 48%;
+    /* Calm Blue */
+    --accent: 35 92% 50%;
+    /* Warm Amber */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --ring: 160 84% 39%;
+}
+
+[data-theme='dark'] {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --primary: 160 84% 45%;
+    --secondary: 199 89% 55%;
+    --accent: 35 92% 55%;
+    --border: 217.2 32.6% 17.5%;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Organic blobs for background decoration */
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgb(var(--primary) / 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    animation: float 20s infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(50px, 100px) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50px, 50px) scale(1);
+    }
+}
